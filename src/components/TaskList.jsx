@@ -5,7 +5,7 @@ import TaskItem from './TaskItem';
 // Стили
 import styles from './TaskList.module.css';
 
-const TaskList = ({tasks, toggleTask, deleteTask}) => {
+const TaskList = ({tasks, toggleTask, deleteTask, enterEditMode}) => {
   return (
     <ul className={styles.tasks}>
         {tasks.sort((a, b) => b.id - a.id).map(task => (
@@ -14,6 +14,7 @@ const TaskList = ({tasks, toggleTask, deleteTask}) => {
                 task={task}
                 deleteTask={deleteTask}
                 toggleTask={toggleTask}
+                enterEditMode={enterEditMode}
             />
         ))
         }

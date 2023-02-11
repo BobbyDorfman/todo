@@ -8,7 +8,7 @@ import { TrashIcon } from '@heroicons/react/24/outline';
 // Стили
 import styles from './TaskItem.module.css';
 
-const TaskItem = ({task, toggleTask, deleteTask}) => {
+const TaskItem = ({task, toggleTask, deleteTask, enterEditMode}) => {
     const [isChecked, setIsChecked] = useState(task.checked);
 
     const handleCheckboxChange = (e) => {
@@ -41,7 +41,7 @@ const TaskItem = ({task, toggleTask, deleteTask}) => {
                 <button
                     className='btn'
                     aria-label={`Обнови ${task.name} задачу`}
-                    onClick={() => toggleTask(task.id)}
+                    onClick={() => enterEditMode(task)}
                 >
                     <PencilSquareIcon width={24} height={24}/>
                 </button>
