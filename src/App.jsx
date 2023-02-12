@@ -7,6 +7,7 @@ import uselocalStorage from './hooks/uselocalStorage'
 import CustomForm from './components/CustomForm'
 import EditForm from './components/EditForm'
 import TaskList from './components/TaskList'
+import ThemeSwitcher from './components/ThemeSwitcher'
 
 function App() {
     const [tasks, setTasks] = uselocalStorage('react-todo.task', []);
@@ -71,7 +72,9 @@ function App() {
                     deleteTask={deleteTask}
                     toggleTask={toggleTask}
                     enterEditMode={enterEditMode}
-                />)}
+                />
+            )}
+            <ThemeSwitcher />
         </div>
     )
 }
