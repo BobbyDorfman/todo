@@ -3,18 +3,24 @@ import React, { useEffect, useState } from 'react'
 // Импорт иконок
 import { XMarkIcon, SunIcon, MoonIcon, SwatchIcon } from '@heroicons/react/24/outline'
 
+// Кастомные hooks
+import uselocalStorage from '../hooks/uselocalStorage'
+
 // Стили   
 import styles from './ThemeSwitcher.module.css'
 
 const ThemeSwitcher = () => {
-    const [hue, setHue] = useState('light')
-    const [theme, setTheme] = useState('200')
+    const [hue, setHue] = uselocalStorage('react-todo.color', '200')
+
+    const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const [theme, setTheme] = uselocalStorage('react-todo.theme', 
+    defaultDark ? "dark" : "light")
     const [isColorPicking, setIsColorPicking] = useState(false)
     
     useEffect(() => {
         document.documentElement.setAttribute('color-scheme', theme);
     }, [theme])
-    
+
     useEffect(() => {
         document.documentElement.style.setProperty('--_hue', hue);
     }, [hue])

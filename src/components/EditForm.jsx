@@ -26,7 +26,7 @@ const EditForm = ({ editedTask, updateTask, closeEditMode }) => {
     return (
         <div 
             role="dialog" 
-            aria-aria-labelledby="editTask"
+            aria-labelledby="editTask"
             onClick={(e) => { e.target === e.currentTarget && closeEditMode()}}
         >
             <form 
